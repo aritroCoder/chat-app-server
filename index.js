@@ -7,7 +7,8 @@ const server = createServer(app);
 const io = new Server(server, {
     cors: {
         origin: 'http://localhost:3000',
-    }
+    },
+    maxHttpBufferSize: 3*1e7 // 30 MB
 });
 
 app.get('/', (req, res) => {
