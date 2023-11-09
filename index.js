@@ -26,9 +26,10 @@ io.on('connection', (socket) => {
     })
     // video call
     socket.on('call-user', (data) => {
-        socket.to(data.to).emit('call-made', {
-            offer: data.offer,
-            socket: socket.id
+        console.log(data)
+        socket.broadcast.emit('call-made', {
+            meetingid: data.meetingid,
+            to: data.to
         })
     })
 })
