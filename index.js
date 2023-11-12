@@ -32,6 +32,14 @@ io.on('connection', (socket) => {
             to: data.to
         })
     })
+    // video call
+    socket.on('audio-call-user', (data) => {
+        console.log(data)
+        socket.broadcast.emit('audio-call-made', {
+            meetingid: data.meetingid,
+            to: data.to
+        })
+    })
 })
 
 server.listen(5500, () => {
